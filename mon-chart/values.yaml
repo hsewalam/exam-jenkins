@@ -1,0 +1,8 @@
+# values.yaml
+castService:
+  image: hsewalam/cast-service-image:latest
+  replicas: 1
+
+movieService:
+  image: hsewalam/movie-service-image:latest
+  replicas: 1

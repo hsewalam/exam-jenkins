@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cast-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cast-service
+  template:
+    metadata:
+      labels:
+        app: cast-service
+    spec:
+      containers:
+        - name: cast-service
+          image: hsewalam/cast-service-image:latest #image de mon dockerhub
+          ports:
+            - containerPort: 8000
+          volumeMounts:
+            - name: cast-service-persistent-storage
+              mountPath: /app
+      volumes:
+        - name: cast-service-persistent-storage
+          emptyDir: {}
